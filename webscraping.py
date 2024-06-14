@@ -1,9 +1,12 @@
-''' módulo de webscraping para o site do airbnb '''
+"""MÓDULO PARA O WEBSCRAPING DO SITE YELP"""
 
-from bs4 import BeautifulSoup
-import requests
+import funcoes_webscraping as fw
 
-url = 'https://www.airbnb.com.br/rooms/785597352085876502/reviews?search_mode=regular_search&check_in=2024-06-28&check_out=2024-07-05&source_impression_id=p3_1718279778_P30DN7DV9Zlm_Sra&previous_page_section_name=1000&federated_search_id=9b720ddc-8faa-490f-bd01-edcbf97ca079'
-page = requests.get(url)
+url = 'https://www.yelp.com/search?find_desc=restaurants&find_loc=Rio+de+Janeiro%2C+RJ'
 
+#GERA O SOUP DO SITE GERAL
+soup = fw.gerar_soup(url)
 
+#GERA A LISTA DE LINKS DE RESULTADOS DA PAGINA COM TODOS OS RESTAURANTES
+links_pagina = fw.gerar_listas_paginas(soup)
+links_pagina.remove(links_pagina[-1])
