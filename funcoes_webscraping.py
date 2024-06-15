@@ -39,8 +39,8 @@ def gerar_lista_soups(lista_links , limitador):
             lista_soups.append(soup)
     return lista_soups
 
-#GERA UMA LISTA DO NUMERO DE PAGINAS DE CADA PRODUTO    
-def encontrar_numero_paginas_por_produto(lista_soups):
+#GERA UMA LISTA DO NUMERO DE PAGINAS DE CADA RESTAURANTE    
+def encontrar_numero_paginas_por_restaurante(lista_soups):
     lista_numero_paginas = []
     for soup in lista_soups:
         bloco_codigo = soup.find("div" , class_="y-css-xdax52")
@@ -59,3 +59,15 @@ def lista_unica(lista):
         if elemento not in lista_unica:
             lista_unica.append(elemento)
     return lista_unica
+
+#DADO A LISTA DE LINKS E QUANTIDADE DE PAGINAS POR LINK, GERA UMA LISTA DE LISTAS DE LINKS DE PAGINAS DE REVIEW
+def gerar_lista_links_reviews(lista_links, lista_numeros_pagina, limitador):
+    lista_links_reviews = []
+    for i in range(len(lista_links)):
+        links_reviews = []
+        for j in range(lista_numeros_pagina[i] - 1):
+            if len(links_reviews) < limitador:
+                links_reviews.append(lista_links[i] + "&start=" + str(j) + "0")
+        lista_links_reviews.append(links_reviews)
+    
+    return lista_links_reviews
