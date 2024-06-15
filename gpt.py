@@ -1,3 +1,5 @@
+"""MÓDULO DE CONEXÃO COM OPENAI PARA ANALISE DAS AVALIAÇÕES"""
+
 from openai import OpenAI
 import json
 

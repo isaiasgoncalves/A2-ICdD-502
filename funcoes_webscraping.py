@@ -1,4 +1,5 @@
 """FUNÇÕES PARA O WEBSCRAPING"""
+
 from bs4 import BeautifulSoup
 import requests
 
@@ -9,7 +10,7 @@ def gerar_soup(url):
     return soup
 
 #GERA UMA LISTA DE LINKS DE PAGINA
-def gerar_listas_paginas(lista_soups , tag , classe, limitador):
+def gerar_listas_links(lista_soups , tag , classe, limitador):
     links_pagina = []
     for soup in lista_soups:
         paginas = soup.find_all(tag , class_=classe)
@@ -37,4 +38,24 @@ def gerar_lista_soups(lista_links , limitador):
             soup = gerar_soup(link)
             lista_soups.append(soup)
     return lista_soups
-    
+
+#GERA UMA LISTA DO NUMERO DE PAGINAS DE CADA PRODUTO    
+def encontrar_numero_paginas_por_produto(lista_soups):
+    lista_numero_paginas = []
+    for soup in lista_soups:
+        bloco_codigo = soup.find("div" , class_="y-css-xdax52")
+        if bloco_codigo:
+            string_com_numero = bloco_codigo.find("span" , class_="y-css-wfbtsu").text
+            numero = string_com_numero[5:]
+            numero = int(numero)
+            lista_numero_paginas.append(numero)
+
+    return lista_numero_paginas
+
+#PEDE UMA LISTA E RETORNA UMA LISTA NA QUAL OS ELEMENTOS APARECEM UMA ÚNICA VEZ
+def lista_unica(lista):
+    lista_unica = []
+    for elemento in lista:
+        if elemento not in lista_unica:
+            lista_unica.append(elemento)
+    return lista_unica
