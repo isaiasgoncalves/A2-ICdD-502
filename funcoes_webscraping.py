@@ -2,6 +2,7 @@
 
 from bs4 import BeautifulSoup
 import requests
+import re
 
 #GERA UM SOUP DADO UM URL
 def gerar_soup(url):
@@ -49,6 +50,8 @@ def encontrar_numero_paginas_por_restaurante(lista_soups):
             numero = string_com_numero[5:]
             numero = int(numero)
             lista_numero_paginas.append(numero)
+        else:
+            lista_numero_paginas.append(1)
 
     return lista_numero_paginas
 
@@ -71,3 +74,57 @@ def gerar_lista_links_reviews(lista_links, lista_numeros_pagina, limitador):
         lista_links_reviews.append(links_reviews)
     
     return lista_links_reviews
+
+#PROCURA UM DADO ESPECÍFICO EM FORMATO DE TEXTO DENTRO DE UM SOUP
+def encontrar_dado(soup , tag , classe , posição):
+    try:
+        dado = soup.find_all(tag, class_=classe)[posição].text
+    except IndexError:
+        dado = ""
+    return dado
+
+#PROCURA UMA LISTA DE DADOS DENTRO DE UM SOUP
+def encontrar_lista_dados(soup , tag, classe):
+    if soup.find_all(tag , class_=classe):
+        return soup.find_all(tag , class_=classe)
+
+#COLETA TODAS AS AVALIAÇÕES DE UM RESTAURANTE E RETORNA UMA LISTA DELAS
+def encontrar_avaliacoes(lista_links):
+    avaliacoes = []
+    for link in lista_links:
+        soup_link = gerar_soup(link)
+        bloco_codigo_avaliacoes = encontrar_lista_dados(soup_link , "p" , "comment__09f24__D0cxf y-css-h9c2fl")
+        if bloco_codigo_avaliacoes:
+            for bloco in bloco_codigo_avaliacoes:
+                review = bloco.find("span" , class_="raw__09f24__T4Ezm")
+                if review.text:
+                    avaliacoes.append(review.text)
+    return avaliacoes
+
+#CRIA UMA MATRIZ COM TODOS OS RESTAURANTES E EM CADA RESTAURANTE UMA LISTA DE INFORMAÇÕES, INCLUINDO AS AVALIAÇÕES
+def cria_matriz_dados(lista_lista_de_links):
+    matriz = []
+    for lista_links in lista_lista_de_links:
+        restaurante = []
+        soup = gerar_soup(lista_links[0])
+        nome = encontrar_dado(soup , "h1" , "y-css-olzveb", 0)
+        estrelas = encontrar_dado(soup , "span" , "y-css-kw85nd" , 0)
+        quant_reviews = encontrar_dado(soup , "a" , "y-css-12ly5yx", 0)
+        quant_reviews = re.sub("[^0-9]" , "" , quant_reviews)
+        preço = encontrar_dado(soup , "span" , "y-css-33yfe" , -1)
+        categoria = encontrar_dado(soup , "span" , "y-css-kw85nd" , 1)
+        endereço = encontrar_dado(soup , "p" , "y-css-dg8xxd", 0)
+        restaurante.append(nome)
+        restaurante.append(estrelas)
+        restaurante.append(quant_reviews)
+        restaurante.append(preço)
+        restaurante.append(categoria)
+        restaurante.append(endereço)
+        avaliacoes = encontrar_avaliacoes(lista_links)
+        restaurante.append(avaliacoes)
+                    
+        matriz.append(restaurante)
+
+    return matriz
+
+
