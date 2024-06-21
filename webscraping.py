@@ -5,8 +5,8 @@ import gpt
 
 url = 'https://www.yelp.com/search?find_desc=restaurants&find_loc=Rio+de+Janeiro%2C+RJ&sortby=review_count'
 limite_paginas = 1
-limite_restaurantes = 5
-limite_paginas_reviews = 2
+limite_restaurantes = 3
+limite_paginas_reviews = 1  
 
 #GERA O SOUP DO SITE GERAL
 soup = [fw.gerar_soup(url)]
