@@ -101,6 +101,35 @@ def encontrar_avaliacoes(lista_links):
                     avaliacoes.append(review.text)
     return avaliacoes
 
+#COLETA TAGS DE CADA RESTAURANTE, FILTRA PARA AS TAGS DESEJADAS PARA ANÁLISE E RETORNA UMA LISTA DE BOLEANOS QUE INDICAM O QUE TEM E O QUE NÃO TEM EM UM RESTAURANTE
+def coletar_tags_restaurantes(soup):
+    tags_true = ["Takes Reservations", "Offers Takeout" , "Offers Catering" , "Offers Delivery", "Many Vegetarian Options" , "Vegan Options"]
+    tags_false = ["No Reservations", "No Takeout" , "" , "No Delivery" , "" , ""]
+    lista_tag_nao_filtrada = []
+    bloco_codigo_tags = encontrar_lista_dados(soup , "div" , "arrange-unit__09f24__rqHTg arrange-unit-fill__09f24__CUubG y-css-1iy1dwt")
+    if bloco_codigo_tags:
+        for bloco in bloco_codigo_tags:
+            tag_true = bloco.find("span" , class_="y-css-1o34y7f")
+            if tag_true != None:
+                lista_tag_nao_filtrada.append(tag_true.text)
+            else:
+                lista_tag_nao_filtrada.append("")
+            tag_false = bloco.find("span" , class_="y-css-dg8xxd")
+            if tag_false != None:
+                lista_tag_nao_filtrada.append(tag_false.text)
+            else:
+                lista_tag_nao_filtrada.append("")
+    lista_tag_filtrada = []
+    for i in range(len(tags_true)):
+        if tags_true[i] in lista_tag_nao_filtrada:
+            lista_tag_filtrada.append(True)
+        elif tags_false[i] in lista_tag_nao_filtrada:
+            lista_tag_filtrada.append(False)
+        else:
+            lista_tag_filtrada.append("")
+    return lista_tag_filtrada
+
+
 #CRIA UMA MATRIZ COM TODOS OS RESTAURANTES E EM CADA RESTAURANTE UMA LISTA DE INFORMAÇÕES, INCLUINDO AS AVALIAÇÕES
 def cria_matriz_dados(lista_lista_de_links):
     matriz = []
@@ -109,8 +138,12 @@ def cria_matriz_dados(lista_lista_de_links):
         soup = gerar_soup(lista_links[0])
         nome = encontrar_dado(soup , "h1" , "y-css-olzveb", 0)
         estrelas = encontrar_dado(soup , "span" , "y-css-kw85nd" , 0)
+        if estrelas:
+            estrelas = float(estrelas)
         quant_reviews = encontrar_dado(soup , "a" , "y-css-12ly5yx", 0)
         quant_reviews = re.sub("[^0-9]" , "" , quant_reviews)
+        if quant_reviews:
+            quant_reviews = int(quant_reviews)
         preço = encontrar_dado(soup , "span" , "y-css-33yfe" , -1)
         categoria = encontrar_dado(soup , "span" , "y-css-kw85nd" , 1)
         endereço = encontrar_dado(soup , "p" , "y-css-dg8xxd", 0)
@@ -120,6 +153,8 @@ def cria_matriz_dados(lista_lista_de_links):
         restaurante.append(preço)
         restaurante.append(categoria)
         restaurante.append(endereço)
+        lista_tags = coletar_tags_restaurantes(soup)
+        restaurante = restaurante + lista_tags
         avaliacoes = encontrar_avaliacoes(lista_links)
         restaurante.append(avaliacoes)
                     

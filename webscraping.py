@@ -4,8 +4,8 @@ import funcoes_webscraping as fw
 import gpt
 
 url = 'https://www.yelp.com/search?find_desc=restaurants&find_loc=Rio+de+Janeiro%2C+RJ&sortby=review_count'
-limite_paginas = 2
-limite_restaurantes = 20
+limite_paginas = 1
+limite_restaurantes = 10
 limite_paginas_reviews = 3
 
 #GERA O SOUP DO SITE GERAL
@@ -28,11 +28,10 @@ for i in range(len(links_restaurantes)):
 lista_soups_restaurantes = fw.gerar_lista_soups(links_restaurantes, limite_restaurantes)
 
 #CRIA UMA LISTA COM A QUANTIDADE DE PÁGINAS DE REVIEW DE CADA RESTAURANTE
-lista_numero_paginas = fw.encontrar_numero_paginas_por_restaurante(lista_soups_restaurantes)
+num_paginas_reviews_por_restaurante = fw.encontrar_numero_paginas_por_restaurante(lista_soups_restaurantes)
 
 #CRIA UMA LISTA COM LISTAS DE LINKS PARA CADA PAGINA DE REVIEW
-lista_de_listas_de_links_de_reviews = fw.gerar_lista_links_reviews(links_restaurantes, lista_numero_paginas, limite_paginas_reviews)
-
+links_paginas_reviews_por_restaurante = fw.gerar_lista_links_reviews(links_restaurantes, num_paginas_reviews_por_restaurante, limite_paginas_reviews)
 #Dados para coletar:
 #NOME
 #ESTRELAS
@@ -44,7 +43,7 @@ lista_de_listas_de_links_de_reviews = fw.gerar_lista_links_reviews(links_restaur
 #TAGS DO SITE(RESERVA, TAKEOUT, CATERING, DELIVERY, OPÇÕES VEGETARIANAS)
 
 #GERA A MATRIZ COM TODOS OS DADOS DE TODOS OS RESTAURANTES E IMPRIME ELA
-restaurantes = fw.cria_matriz_dados(lista_de_listas_de_links_de_reviews)
+restaurantes = fw.cria_matriz_dados(links_paginas_reviews_por_restaurante)
 print(restaurantes)
 
 # contagem_positivos, contagem_negativos = gpt.analise(restaurantes[0][0])
@@ -59,4 +58,4 @@ print(restaurantes)
 # # Exibir os tópicos negativos e suas contagens
 # print("\nTópicos Negativos:")
 # for item in contagem_negativos:
-#    print(f"{item['topico']}: {item['contagem']}")
+#     print(f"{item['topico']}: {item['contagem']}")
