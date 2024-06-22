@@ -1,5 +1,3 @@
-"""MÓDULO DE CONEXÃO COM OPENAI PARA ANALISE DAS AVALIAÇÕES"""
-
 from openai import OpenAI
 import json
 
@@ -99,38 +97,41 @@ def analise(avaliacoes, topicos_positivos=topicos_positivos, topicos_negativos=t
             #print(f"Nenhum tópico identificado para a avaliação {i}: {avaliacao}")
             pass
 
-    # Transforma as contagens em listas de dicionários
-    positivos = [{"topico": tp, "contagem": count} for tp, count in contagem_positivos.items()]
-    negativos = [{"topico": tn, "contagem": count} for tn, count in contagem_negativos.items()]
+    # Transforma as contagens em listas de tuplas
+    positivos = dict( [(tp, count) for tp, count in contagem_positivos.items()] )
+    negativos = dict( [(tn, count) for tn, count in contagem_negativos.items() ])
 
     return positivos, negativos
 
 # Exemplo de uso da função de análise
-# avaliacoes = [
-#     "Ótimo serviço! Eles foram muito rápidos na entrega e o atendimento foi excelente.",
-#     "Não recomendo. O produto veio com defeito e o suporte ao cliente foi péssimo, demoraram muito para responder.",
-#     "Estou muito satisfeito com a qualidade do produto. Superou minhas expectativas!",
-#     "Preço justo e entrega dentro do prazo. Recomendo!",
-#     "O atendimento ao cliente foi muito ruim. Tive problemas para resolver um simples problema.",
-#     "Produto excelente, superou minhas expectativas. Recomendo muito!",
-#     "A entrega foi muito rápida e o produto chegou bem embalado. Serviço de qualidade.",
-#     "Não gostei do produto, a qualidade deixou a desejar. Não recomendo.",
-#     "Serviço muito eficiente. Eles resolveram meu problema rapidamente.",
-#     "Péssimo atendimento. Fiquei esperando horas para ser atendido e ainda assim não resolveram meu problema.",
-#     "Produto veio com defeito e até agora não obtive uma solução adequada."
-# ]
+#avaliacoes = [
+#    "Ótimo serviço! Eles foram muito rápidos na entrega e o atendimento foi excelente.",
+#    "Não recomendo. O produto veio com defeito e o suporte ao cliente foi péssimo, demoraram muito para responder.",
+#    "Estou muito satisfeito com a qualidade do produto. Superou minhas expectativas!",
+#    "Preço justo e entrega dentro do prazo. Recomendo!",
+#    "O atendimento ao cliente foi muito ruim. Tive problemas para resolver um simples problema.",
+#    "Produto excelente, superou minhas expectativas. Recomendo muito!",
+#    "A entrega foi muito rápida e o produto chegou bem embalado. Serviço de qualidade.",
+#    "Não gostei do produto, a qualidade deixou a desejar. Não recomendo.",
+#    "Serviço muito eficiente. Eles resolveram meu problema rapidamente.",
+#    "Péssimo atendimento. Fiquei esperando horas para ser atendido e ainda assim não resolveram meu problema.",
+#    "Produto veio com defeito e até agora não obtive uma solução adequada."
+#]
 
 # Chama a função de análise e armazena os resultados
 # contagem_positivos, contagem_negativos = analise(avaliacoes)
 
-# # Exibir os tópicos positivos e suas contagens
+# print(contagem_positivos)
+# print(contagem_negativos)
+
+# Exibir os tópicos positivos e suas contagens
 # print("Tópicos Positivos:")
 # for item in contagem_positivos:
-#     print(f"{item['topico']}: {item['contagem']}")
+#     print(f"{item[0]}: {item[1]}")
 # print(contagem_positivos)
 
-# # Exibir os tópicos negativos e suas contagens
+# Exibir os tópicos negativos e suas contagens
 # print("\nTópicos Negativos:")
 # for item in contagem_negativos:
-#     print(f"{item['topico']}: {item['contagem']}")
+#     print(f"{item[0]}: {item[1]}")
 # print(contagem_negativos)
