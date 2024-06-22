@@ -133,32 +133,40 @@ def coletar_tags_restaurantes(soup):
 #CRIA UMA MATRIZ COM TODOS OS RESTAURANTES E EM CADA RESTAURANTE UMA LISTA DE INFORMAÇÕES, INCLUINDO AS AVALIAÇÕES
 def cria_matriz_dados(lista_lista_de_links):
     matriz = []
+    id = 1
     for lista_links in lista_lista_de_links:
         restaurante = []
-        soup = gerar_soup(lista_links[0])
-        nome = encontrar_dado(soup , "h1" , "y-css-olzveb", 0)
-        estrelas = encontrar_dado(soup , "span" , "y-css-kw85nd" , 0)
-        if estrelas:
-            estrelas = float(estrelas)
-        quant_reviews = encontrar_dado(soup , "a" , "y-css-12ly5yx", 0)
-        quant_reviews = re.sub("[^0-9]" , "" , quant_reviews)
-        if quant_reviews:
-            quant_reviews = int(quant_reviews)
-        preço = encontrar_dado(soup , "span" , "y-css-33yfe" , -1)
-        categoria = encontrar_dado(soup , "span" , "y-css-kw85nd" , 1)
-        endereço = encontrar_dado(soup , "p" , "y-css-dg8xxd", 0)
-        restaurante.append(nome)
-        restaurante.append(estrelas)
-        restaurante.append(quant_reviews)
-        restaurante.append(preço)
-        restaurante.append(categoria)
-        restaurante.append(endereço)
-        lista_tags = coletar_tags_restaurantes(soup)
-        restaurante = restaurante + lista_tags
-        avaliacoes = encontrar_avaliacoes(lista_links)
-        restaurante.append(avaliacoes)
-                    
-        matriz.append(restaurante)
+        if lista_links:
+            soup = gerar_soup(lista_links[0])
+            nome = encontrar_dado(soup , "h1" , "y-css-olzveb", 0)
+            estrelas = encontrar_dado(soup , "span" , "y-css-kw85nd" , 0)
+            if estrelas:
+                estrelas = float(estrelas)
+            quant_reviews = encontrar_dado(soup , "a" , "y-css-12ly5yx", 0)
+            quant_reviews = re.sub("[^0-9]" , "" , quant_reviews)
+            if quant_reviews:
+                quant_reviews = int(quant_reviews)
+            preço = encontrar_dado(soup , "span" , "y-css-33yfe" , -1)
+            if preço:
+                preço = len(preço)
+            else:
+                preço = ""
+            categoria = encontrar_dado(soup , "span" , "y-css-kw85nd" , 1)
+            endereço = encontrar_dado(soup , "p" , "y-css-dg8xxd", 0)
+            restaurante.append(id)
+            restaurante.append(nome)
+            restaurante.append(estrelas)
+            restaurante.append(quant_reviews)
+            restaurante.append(preço)
+            restaurante.append(categoria)
+            restaurante.append(endereço)
+            lista_tags = coletar_tags_restaurantes(soup)
+            restaurante = restaurante + lista_tags
+            avaliacoes = encontrar_avaliacoes(lista_links)
+            restaurante.append(avaliacoes)
+                        
+            matriz.append(restaurante)
+            id += 1
 
     return matriz
 
