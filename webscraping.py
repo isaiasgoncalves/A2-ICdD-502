@@ -2,6 +2,7 @@
 
 import funcoes_webscraping as fw
 import export
+import gpt
 
 url = 'https://www.yelp.com/search?find_desc=restaurants&find_loc=Rio+de+Janeiro%2C+RJ&sortby=review_count'
 limite_paginas = 1
@@ -35,6 +36,9 @@ links_paginas_reviews_por_restaurante = fw.gerar_lista_links_reviews(links_resta
 
 #GERA A MATRIZ COM TODOS OS DADOS DE TODOS OS RESTAURANTES E IMPRIME ELA
 restaurantes = fw.cria_matriz_dados(links_paginas_reviews_por_restaurante)
+
+#TRANSFORMA O ENDEREÇO DE CADA RESTAURANTE EM BAIRRO
+restaurantes = gpt.obter_bairros(restaurantes)
 
 #CRIA O CSV COM OS DADOS DA MATRIZ
 export.criar_csv(restaurantes)

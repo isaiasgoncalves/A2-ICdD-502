@@ -4,7 +4,7 @@ from openai import OpenAI
 import json
 
 # Inicializa o cliente da OpenAI com a sua chave API
-client = OpenAI(api_key='COLOQUE A CHAVE DA OPENAI AQUI')
+client = OpenAI(api_key='meta a chave ai')
 
 # Função que contabiliza os tópicos identificados nas avaliações
 def contabiliza_topico(topicos, contagem_positivos, contagem_negativos):
@@ -109,35 +109,25 @@ def analise(avaliacoes, topicos_positivos=topicos_positivos, topicos_negativos=t
 
     return positivos, negativos
 
-# Exemplo de uso da função de análise
-#avaliacoes = [
-#    "Ótimo serviço! Eles foram muito rápidos na entrega e o atendimento foi excelente.",
-#    "Não recomendo. O produto veio com defeito e o suporte ao cliente foi péssimo, demoraram muito para responder.",
-#    "Estou muito satisfeito com a qualidade do produto. Superou minhas expectativas!",
-#    "Preço justo e entrega dentro do prazo. Recomendo!",
-#    "O atendimento ao cliente foi muito ruim. Tive problemas para resolver um simples problema.",
-#    "Produto excelente, superou minhas expectativas. Recomendo muito!",
-#    "A entrega foi muito rápida e o produto chegou bem embalado. Serviço de qualidade.",
-#    "Não gostei do produto, a qualidade deixou a desejar. Não recomendo.",
-#    "Serviço muito eficiente. Eles resolveram meu problema rapidamente.",
-#    "Péssimo atendimento. Fiquei esperando horas para ser atendido e ainda assim não resolveram meu problema.",
-#    "Produto veio com defeito e até agora não obtive uma solução adequada."
-#]
 
-# Chama a função de análise e armazena os resultados
-# contagem_positivos, contagem_negativos = analise(avaliacoes)
+def obter_bairros(matriz): # Recebe a matriz geral
 
-# print(contagem_positivos)
-# print(contagem_negativos)
+    for restaurante in matriz: # Para cada restaurante da matriz
+        endereco = restaurante[5] # Pega o endereço do restaurante
+        prompt = [{"role":"user", "content":f"Quero saber o é o bairro deste endereço: {endereco}. Retorne apenas o nome do bairro, com por exemplo: Centro"}]
 
-# Exibir os tópicos positivos e suas contagens
-# print("Tópicos Positivos:")
-# for item in contagem_positivos:
-#     print(f"{item[0]}: {item[1]}")
-# print(contagem_positivos)
+        # Obtém o bairro do respectivo endereço
 
-# Exibir os tópicos negativos e suas contagens
-# print("\nTópicos Negativos:")
-# for item in contagem_negativos:
-#     print(f"{item[0]}: {item[1]}")
-# print(contagem_negativos)
+        response = client.chat.completions.create(
+            messages = prompt,
+            model = "gpt-3.5-turbo-0125",
+            max_tokens = 50,
+            temperature = 1
+        )
+        # Troca o antigo endereço pelo bairro
+        restaurante[5] = response.choices[0].message.content
+
+
+
+    return matriz
+

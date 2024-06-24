@@ -13,7 +13,7 @@ def criar_csv(matriz):
     "Quantidade de Reviews",
     "Faixa de Preço",
     "Categoria",
-    "Endereço",
+    "Bairro",
     "Possui Reserva",
     "Oferece Retirada",
     "Oferece Serviço de Bufê",
