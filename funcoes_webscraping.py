@@ -133,7 +133,6 @@ def coletar_tags_restaurantes(soup):
 #CRIA UMA MATRIZ COM TODOS OS RESTAURANTES E EM CADA RESTAURANTE UMA LISTA DE INFORMAÇÕES, INCLUINDO AS AVALIAÇÕES
 def cria_matriz_dados(lista_lista_de_links):
     matriz = []
-    id = 1
     for lista_links in lista_lista_de_links:
         restaurante = []
         if lista_links:
@@ -152,8 +151,9 @@ def cria_matriz_dados(lista_lista_de_links):
             else:
                 preço = ""
             categoria = encontrar_dado(soup , "span" , "y-css-kw85nd" , 1)
+            categoria = categoria.replace("," , "")
+            categoria.strip()
             endereço = encontrar_dado(soup , "p" , "y-css-dg8xxd", 0)
-            restaurante.append(id)
             restaurante.append(nome)
             restaurante.append(estrelas)
             restaurante.append(quant_reviews)
@@ -166,7 +166,6 @@ def cria_matriz_dados(lista_lista_de_links):
             restaurante.append(avaliacoes)
                         
             matriz.append(restaurante)
-            id += 1
 
     return matriz
 

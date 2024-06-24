@@ -32,31 +32,9 @@ num_paginas_reviews_por_restaurante = fw.encontrar_numero_paginas_por_restaurant
 
 #CRIA UMA LISTA COM LISTAS DE LINKS PARA CADA PAGINA DE REVIEW
 links_paginas_reviews_por_restaurante = fw.gerar_lista_links_reviews(links_restaurantes, num_paginas_reviews_por_restaurante, limite_paginas_reviews)
-#Dados para coletar:
-#NOME
-#ESTRELAS
-#QUANTIDADE DE REVIEWS
-#PREÇO
-#CATEGORIA
-#ENDEREÇO
-#AVALIAÇÕES
-#TAGS DO SITE(RESERVA, TAKEOUT, CATERING, DELIVERY, OPÇÕES VEGETARIANAS)
 
 #GERA A MATRIZ COM TODOS OS DADOS DE TODOS OS RESTAURANTES E IMPRIME ELA
 restaurantes = fw.cria_matriz_dados(links_paginas_reviews_por_restaurante)
 
+#CRIA O CSV COM OS DADOS DA MATRIZ
 export.criar_csv(restaurantes)
-
-# contagem_positivos, contagem_negativos = gpt.analise(restaurantes[0][0])
-# print(contagem_positivos)
-# print(contagem_negativos)
-
-# # Exibir os tópicos positivos e suas contagens
-# print("\nTópicos Positivos:") 
-# for item in contagem_positivos:
-#     print(f"{item['topico']}: {item['contagem']}")
-
-# # Exibir os tópicos negativos e suas contagens
-# print("\nTópicos Negativos:")
-# for item in contagem_negativos:
-#     print(f"{item['topico']}: {item['contagem']}")

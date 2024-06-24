@@ -1,8 +1,10 @@
+"""MÓDULO DE CONEXÃO COM A OPENAI"""
+
 from openai import OpenAI
 import json
 
 # Inicializa o cliente da OpenAI com a sua chave API
-client = OpenAI(api_key='COLOQUE A CHAVE AQUI')
+client = OpenAI(api_key='COLOQUE A CHAVE DA OPENAI AQUI')
 
 # Função que contabiliza os tópicos identificados nas avaliações
 def contabiliza_topico(topicos, contagem_positivos, contagem_negativos):
@@ -36,27 +38,31 @@ funcoes_disponiveis = {"contabiliza_topico": contabiliza_topico}
 
 # Define os tópicos positivos e negativos que serão procurados nas avaliações
 topicos_positivos = [
-    "Ótimo serviço",
-    "Entrega rápida",
-    "Atendimento excelente",
-    "Qualidade do produto",
+    "Agilidade no Serviço",
+    "Variedade de Opções",
+    "Sabor Agradável",
+    "Ingredientes de Qualidade",
+    "Pratos Apresentáveis",
+    "Atendimento Bom",
+    "Ambiente Confortável",
+    "Bom Custo-Benefício",
     "Recomendo",
-    "Embalagem de qualidade",
-    "Eficiência no serviço de entrega",
-    "Serviço de qualidade",
-    "Velocidade no serviço",
-    "Superou expectativas",
-    "Recomendo muito",
-    "Produto excelente",
-    "Qualidade do atendimento ao cliente",
+    "Voltaria",
+    "Outros Positivos"
 ]
 
 topicos_negativos = [
-    "Demora no suporte ao cliente",
-    "Produto com defeito",
-    "Atendimento ao cliente ruim",
-    "Problemas na entrega",
-    "Não recomendo",
+    "Lentidão no Serviço",
+    "Cardápio Limitado",
+    "Sabor Insatisfatório",
+    "Ingredientes de Baixa Qualidade",
+    "Má Apresentação dos Pratos",
+    "Atendimento Ruim",
+    "Ambiente Desconfortável",
+    "Preços Elevados",
+    "Não Recomendo",
+    "Não Voltaria",
+    "Outros Negativos"
 ]
 
 # Função principal que analisa as avaliações
@@ -70,7 +76,7 @@ def analise(avaliacoes, topicos_positivos=topicos_positivos, topicos_negativos=t
     for i, avaliacao in enumerate(avaliacoes, start=1):
         # Cria o prompt para a análise da avaliação
         prompt = [
-            {"role": "user", "content": f"Analise a avaliação: {avaliacao}. Indique se a avaliação se encaixa em algum dos tópicos positivos ({topicos_positivos}) ou negativos ({topicos_negativos}). Seja criterioso, na escolha do tópico, não classifique em qualquer um."}
+            {"role": "user", "content": f"Analise a avaliação: {avaliacao}. Indique se a avaliação se encaixa em algum dos tópicos positivos ({topicos_positivos}) ou negativos ({topicos_negativos}). Seja criterioso, na escolha dos tópicos."}
         ]
 
         # Faz a chamada ao modelo da OpenAI para processar a avaliação

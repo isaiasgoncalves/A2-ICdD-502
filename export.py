@@ -1,3 +1,5 @@
+"""MÓDULO DE MANIPULAÇÃO DO DATASET E CRIAÇÃO DO CSV"""
+
 import pandas as pd
 import gpt
 
@@ -6,7 +8,6 @@ import gpt
 def criar_csv(matriz):
 
     headers = [
-    "ID Restaurante",
     "Nome",
     "Média de Estrelas",
     "Quantidade de Reviews",
@@ -19,24 +20,28 @@ def criar_csv(matriz):
     "Oferece Delivery",
     "Possui Muitas Opções Vegetarianas",
     "Possui Opções Veganas",
-    "Ótimo Serviço",
-    "Entrega Rápida",
-    "Atendimento Excelente",
-    "Qualidade do Produto",
+    "Agilidade no Serviço",
+    "Lentidão no Serviço",
+    "Variedade de Opções",
+    "Cardápio Limitado",
+    "Sabor Agradável",
+    "Sabor Insatisfatório",
+    "Ingredientes de Qualidade",
+    "Ingredientes de Baixa Qualidade",
+    "Pratos Apresentáveis",
+    "Má Apresentação dos Pratos",
+    "Atendimento Bom",
+    "Atendimento Ruim",
+    "Ambiente Confortável",
+    "Ambiente Desconfortável",
+    "Bom Custo-Benefício",
+    "Preços Elevados",
     "Recomendo",
-    "Embalagem de Qualidade",
-    "Eficiência no Serviço de Entrega",
-    "Serviço de Qualidade",
-    "Velocidade no Serviço",
-    "Superou Expectativas",
-    "Recomendo Muito",
-    "Produto Excelente",
-    "Qualidade do Atendimento ao Cliente",
-    "Demora no Suporte ao Cliente",
-    "Produto com Defeito",
-    "Atendimento ao Cliente Ruim",
-    "Problemas na Entrega",
     "Não Recomendo",
+    "Voltaria",
+    "Não Voltaria",
+    "Outros Positivos",
+    "Outros Negativos"
     ]
 
     # print(len(headers))
@@ -59,7 +64,9 @@ def criar_csv(matriz):
         # print(len(linha))
         dataset.loc[len(dataset)] = linha
 
-
+    # Resetando o índice do DataFrame e nomeando a coluna de IDs automáticos como 'IdRestaurante'
+    dataset.reset_index(drop=True, inplace=True)
+    dataset.index.name = 'IdRestaurante'
     
 
 
