@@ -1,4 +1,4 @@
-# A2-ICdD-502
+# Trabalho da A2 de Introdução à Ciência de Dados
 Projeto Final: Análise de Avaliações de Consumidores, Introdução à Ciência de Dados, Entrega: 25/06
 
 # Feito pelos alunos:
