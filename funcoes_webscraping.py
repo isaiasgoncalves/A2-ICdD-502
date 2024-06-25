@@ -3,6 +3,7 @@
 from bs4 import BeautifulSoup
 import requests
 import re
+import progress_bar
 
 #GERA UM SOUP DADO UM URL
 def gerar_soup(url):
@@ -133,7 +134,13 @@ def coletar_tags_restaurantes(soup):
 #CRIA UMA MATRIZ COM TODOS OS RESTAURANTES E EM CADA RESTAURANTE UMA LISTA DE INFORMAÇÕES, INCLUINDO AS AVALIAÇÕES
 def cria_matriz_dados(lista_lista_de_links):
     matriz = []
+    p = 1
     for lista_links in lista_lista_de_links:
+
+        q = len(lista_lista_de_links)
+        msg = f"Coletando dados dos restaurantes, {p} de {q}"
+        progress_bar.prog_bar(p, q, msg)
+
         restaurante = []
         if lista_links:
             soup = gerar_soup(lista_links[0])
@@ -166,6 +173,7 @@ def cria_matriz_dados(lista_lista_de_links):
             restaurante.append(avaliacoes)
                         
             matriz.append(restaurante)
+            p += 1
 
     return matriz
 

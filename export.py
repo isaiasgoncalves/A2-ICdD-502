@@ -2,7 +2,7 @@
 
 import pandas as pd
 import gpt
-
+import progress_bar as terminal
 
 
 def criar_csv(matriz):
@@ -50,7 +50,16 @@ def criar_csv(matriz):
 
     linha = []
 
+    q = len(matriz)
+    p = 1
+    msg = f"Processando as informações dos restaurantes, {p} de {q}"
+    terminal.prog_bar(p,q,msg)
+
     for restaurante in matriz:
+        
+        msg = f"Processando as informações dos restaurantes, {p} de {q}"
+        terminal.prog_bar(p,q,msg)
+
         linha = restaurante[:-1]
 
         contagem_positivos, contagem_negativos = gpt.analise(restaurante[-1])
@@ -58,7 +67,8 @@ def criar_csv(matriz):
             linha.append(contagem_positivos[topico])
 
         for topico in contagem_negativos:
-            linha.append(contagem_negativos[topico])    
+            linha.append(contagem_negativos[topico])  
+        p += 1  
 
         # print(linha)
         # print(len(linha))
@@ -71,4 +81,6 @@ def criar_csv(matriz):
 
 
     dataset.to_csv("avaliações.csv")
+    terminal.limpar_tela()
+    print("Arquivo avaliações.csv criado!")
 
