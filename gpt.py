@@ -4,7 +4,7 @@ from openai import OpenAI
 import json
 
 # Inicializa o cliente da OpenAI com a sua chave API
-client = OpenAI(api_key='sk-proj-iRdANqIdl63jPtSNpGqyT3BlbkFJg6OqF7YsiupJbRSJuXUU')
+client = OpenAI(api_key='COLOQUE A CHAVE AQUI')
 
 # Função que contabiliza os tópicos identificados nas avaliações
 def contabiliza_topico(topicos, contagem_positivos, contagem_negativos):
