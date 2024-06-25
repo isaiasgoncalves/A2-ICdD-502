@@ -7,6 +7,7 @@ import progress_bar as terminal
 
 def criar_csv(matriz):
 
+    # Nomes das colunas
     headers = [
     "Nome",
     "Média de Estrelas",
@@ -16,7 +17,6 @@ def criar_csv(matriz):
     "Bairro",
     "Possui Reserva",
     "Oferece Retirada",
-    "Oferece Serviço de Bufê",
     "Oferece Delivery",
     "Possui Muitas Opções Vegetarianas",
     "Possui Opções Veganas",
@@ -53,15 +53,16 @@ def criar_csv(matriz):
     q = len(matriz)
     p = 1
     msg = f"Processando as informações dos restaurantes, {p} de {q}"
-    terminal.prog_bar(p,q,msg)
 
     for restaurante in matriz:
         
+        # Printa a barra de progresso
         msg = f"Processando as informações dos restaurantes, {p} de {q}"
         terminal.prog_bar(p,q,msg)
 
         linha = restaurante[:-1]
 
+        # Chama a funcão de análise de reviews do chat gpt e coloca os dados na matriz
         contagem_positivos, contagem_negativos = gpt.analise(restaurante[-1])
         for topico in contagem_positivos:
             linha.append(contagem_positivos[topico])
@@ -79,8 +80,8 @@ def criar_csv(matriz):
     dataset.index.name = 'IdRestaurante'
     
 
-
-    dataset.to_csv("avaliações.csv")
+    # Cria o arquivo csv e mostra uma mensagem de confirmação 
+    dataset.to_csv("restaurantes.csv")
     terminal.limpar_tela()
-    print("Arquivo avaliações.csv criado!")
+    print("Arquivo restaurantes.csv criado!")
 

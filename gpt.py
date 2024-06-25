@@ -4,7 +4,7 @@ from openai import OpenAI
 import json
 
 # Inicializa o cliente da OpenAI com a sua chave API
-client = OpenAI(api_key='COLOQUE A CHAVE AQUI')
+client = OpenAI(api_key='COLOQUE A CHAVE OPENAI AQUI')
 
 # Função que contabiliza os tópicos identificados nas avaliações
 def contabiliza_topico(topicos, contagem_positivos, contagem_negativos):
@@ -114,7 +114,7 @@ def obter_bairros(matriz): # Recebe a matriz geral
 
     for restaurante in matriz: # Para cada restaurante da matriz
         endereco = restaurante[5] # Pega o endereço do restaurante
-        prompt = [{"role":"user", "content":f"Quero saber o é o bairro deste endereço: {endereco}. Retorne apenas o nome do bairro, com por exemplo: Centro"}]
+        prompt = [{"role":"user", "content":f"Quero saber o é o bairro deste endereço: {endereco}. Retorne apenas o nome do bairro (com por exemplo: Centro), caso não consiga determinar o bairro ou não seja recebido um endereço retorne a palavra Desconhecido (desta forma: Desconhecido). Nunca retorne nada além do que foi solicitado, como pontuações ou explicações."}]
 
         # Obtém o bairro do respectivo endereço
 

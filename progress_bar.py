@@ -1,3 +1,5 @@
+"""MÓDULO DE CRIAÇÃO DA BARRA DE PROGRESSO"""
+
 import os
 import platform
 
@@ -23,6 +25,7 @@ def prog_bar(valor_atual, valor_total, msg):
 
 
 def limpar_tela():
+    # Verifica qual é o sistema operacional e limpa a tela
     if os.getenv('TERM') is not None:
         if platform.system() == "Windows":
             os.system("cls")
