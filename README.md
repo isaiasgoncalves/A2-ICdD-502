@@ -1,6 +1,8 @@
 # Trabalho da A2 de Introdução à Ciência de Dados
 Projeto Final: Análise de Avaliações de Consumidores, Introdução à Ciência de Dados, Entrega: 25/06
 
+# Segue neste README a documentação do código e as explicações referentes a análise dos dados, dos métodos utilizados e estrutura do Excel. O arquivo do Excel é analise_dados.xlsx
+
 # Feito pelos alunos:
 - Isaías Gouvêa Gonçalves
 - Henrique Gabriel Gasparelo
