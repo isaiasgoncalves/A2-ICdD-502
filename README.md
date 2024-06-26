@@ -182,7 +182,86 @@ Esse processo ocorre enquanto o código executa a função `export.criar_csv(res
 ### Progress Bar
   Esse arquivo carrega as funções `limpar_tela()` e `prog_bar` que limpam a tela do terminal e criam uma barra de progresso que é utilizada durante alguns processos do código, respectivamente
 
+## Excel
+### Dados
+  Os dados extraidos pelo webscraping e enviados para o csv foram usados em forma de tabela no Excel, foram criadas tabelas auxiliares para melhorar a visualização dos dados e a organização dos gráficos. 
 
+#### Tabelas Auxiliares
+
+  A primeira tabela indica, em cada restaurante, a quantidade de tópicos positivos, chamada de "Elogios", a quantidade de tópicos negativos, chamada de "Reclamações", e a diferença entre a quantidade de tópicos positivos e negativos, chamada de "Proporção".
+  
+  A segunda tabela retrata os meus dados das colunas dos tópicos das avaliações, porém, os mostra de forma a relativa a quantidade de tópicos de cada restaurante, representando, em um número de 0 a 100, qual a razão entre o valor daquele tópico naquele restaurante, pela quantidade total de tópicos do estabelecimento. Para cada tópico, de cada restaurante, é feita a seguinte operação, coleta o valor desse tópico, nesse restaurante, usando "PROCV", divide este valor pela quantidade de tópicos do restaurante e multiplica o resultado da divisão por 100.
+### Escolha das análises
+  A apresentação dos dados foi dividida em 3 peças de análise:
+
+#### Bairros
+
+  Foram escolhidos 4 gráficos para análise, a partir de tabelas dinâmicas criadas em outra aba:
+
+  Bairro X Média de Estrelas e Quantidade de Reviews - Relaciona para cada bairro qual a média da média de estrelas e a média de quantidade de reviews, foi escolhido a fim de analisar em quais locais existem os restaurantes melhor avaliados e com mais avaliações. O gráfico é uma combinação de coluna e linha para promover comparações, entre as localidades, estrelas e reviews de diversas formas.
+
+  Bairro X Proporção - Relaciona para cada bairro a diferença entre tópicos positivos e negativos, foi escolhido com o intuito de analisar quais locais são mais ou menos elogiados. O tipo de gráfico é gráfico de colunas para facilitar a visualização.
+
+  Bairro X Quantidade - Relaciona para cada bairro a quantidade de restaurantes, foi escolhido a fim de entender em quais locais existem mais restaurantes. O tipo de gráfico é gráfico de colunas para facilitar a visualização.
+
+  Bairro X Custo-Benefício - Relaciona para cada bairro o custo-benefício médio, foi escolhido para entender em quais bairros os restaurantes possui maior ou menor custo-benefício. O gráfico preferido foi de colunas empilhadas para comparar entre bairros e analisar cada um deles.
+
+  A apresentação de todos esses gráficos foi feita com o intuito de comparar, buscar tendências e encontrar pontos de melhoria em cada bairro, entendendo em quais bairros estão os melhores restaurantes.
+
+#### Faixa de preço
+
+  Foram escolhidos 4 gráficos para análise, a partir de tabelas dinâmicas criadas em outra aba:
+
+  Faixa de Preço X Média de Estrelas - Relaciona para cada faixa de preço qual a média da média de estrelas, foi escolhido com o intuito de analisar em qual faixa de preço se encontra os restaurantes melhor avaliados. O tipo de gráfico é gráfico de colunas para facilitar a visualização.
+
+  Faixa de Preço X Quantidade - Relaciona para cada faixa de preço a quantidade de restaurantes, foi escolhido a fim de entender em qual faixa de preço se encontra a maioria dos restaurantes. O tipo de gráfico é gráfico de colunas para facilitar a visualização.
+
+  Faixa de Preço X Retorno dos Clientes - Relaciona para cada faixa de preço a média dos valores do tópico "Voltaria", foi escolhido com a intenção de entender qual a faixa de preço que atrai os clientes o bastante para que eles retornem ao estabelecimento. O tipo de gráfico é gráfico de linhas, para entender conforme a faixa de preço aumenta o que acontece com o retorno dos clientes.
+
+  Faixa de Preço X Recomendações do Clientes - Relaciona para cada faixa de preço a média dos valores do tópico "Recomendo", foi escolhido com a intenção de entender qual a faixa de preço que incentiva os clientes a recomendar o restaurante para conhecidos. O tipo de gráfico é gráfico de linhas, para entender conforme a faixa de preço aumenta o que acontece com as recomendações dos clientes.
+
+  A apresentação de todos esses gráficos foi feita com o intuito de entender como a faixa de preço influencia as avaliações, o retorno, as recomendações e as opiniões dos clientes no ramo de restaurantes, buscando encontrar padrões e pontos de melhoria.
+
+#### Categorias
+
+  Foram escolhidos 4 gráficos para análise, a partir de tabelas dinâmicas criadas em outra aba:
+
+  Categorias X Variedade: Relaciona para cada categoria qual a média dos valores dos tópicos relacionados a variedade de opções e limitações do cardápio, foi escolhido com a intenção de entender quais são as categorias de restaurantes que possui maior variedade de produtos. O tipo de gráfico é gráfico de colunas empilhadas, para comparar categorias e analisar cada uma delas.
+
+  Categorias X Proporção: Relaciona para cada categoria qual a diferença entre tópicos positivos e negativos, foi escolhido para entender quais são as categorias melhor avaliadas. O tipo de gráfico é gráfico de colunas para facilitar a visualização.
+
+  Categorias X Apresentação dos Pratos: Relaciona para cada categoria qual a média dos valores dos tópicos relacionados a apresentação dos pratos, foi escolhido para entender em quais categorias os restaurantes possuem uma melhor apresentação dos pratos. O tipo de gráfico é gráfico de colunas empilhadas, para comparar categorias e analisar cada uma delas.
+
+  Categorias X Sabor: Relaciona para cada categoria qual a média dos valores relacionados ao sabor dos pratos, foi escolhido com o intuito de compreender quais categorias de restaurantes possuem pratos mais saborosos. O tipo de gráfico é gráfico de colunas empilhadas, para comparar categorias e analisar cada uma delas.
+
+  A apresentação de todos esses gráficos foi feita com o intuito de comparar categorias de restaurantes, buscar padrões entre as categorias com melhor variedade, sabor, qualidade e apresentação dos pratos, e entender pontos onde cada categoria pode melhorar.
+
+### Conclusões
+
+  A partir dos dados coletados e dos gráficos apresentados é possível concluir o seguinte sobre cada uma das peças de análise:
+
+#### Bairros
+
+  Bairros como a Lapa, possuem muitas avaliações e uma grande satisfação dos clientes, o que evidencia que um aumento no número de avaliações pode ajudá-lo a melhorar seus serviços.
+  Bairros da zona Sul, como Copacabana, Ipanema e Leblon, possuem mais restaurantes, mostrando que certas áreas precisam de mais restaurantes.
+  Bairros como a Lapa, Botafogo e Santa Teresa possuem preços mais elevados, enquanto Del Castilho e Copacabana possuem maior custo-benefício, mostrando quais restaurantes precisam melhores os preços.
+  Existem filtros no Excel por faixa de preço, oferta de delivery e oferta de retirada, o que possibilita análises mais específicas.
+
+#### Faixa de Preço
+
+  Restaurantes mais baratos, na faixa de preço 2, possuem maior quantidade de estrelas, o que mostra que restaurante mais baratos são melhor avaliados e que o alto preço de certos restaurantes pode ser um problema para a qualidade do serviço.
+  Quanto mais caro for o restaurante, maior a quantidade de pessoas que voltaria neles, o que mostra que a experiência de restaurantes mais caros é boa o bastante para motivar os clientes a irem novamente.
+  Quanto mais caro for o restaurante, maior a quantidade de pessoas que recomendaria eles, mostrando que restaurantes mais caros oferecem uma experiência que motiva os clientes a recomendá-los para conhecidos.
+  A maior quantidade de restaurantes são da categoria 3, o que mostra que os preços dos restaurantes são equilibrados.
+  Existem filtros no Excel por bairro, oferta de opções vegetarianas e oferta de opções veganas, o que possibilita análises mais específicas.
+
+#### Categoria
+
+  A maioria das categorias possuem uma grande variedade de opções no menu, dentre elas, Gastropub e Breweries são as que possuem a maior variedade.
+  A categoria Bistro é a que mais possui satisfação dos clientes, o que evidencia que serviços como esse são mais satisfatórios aos clientes, enquanto Salad possui baixa satisfação com os clientes, mostrando que serviços como esse são menos atratativos.
+  A maioria das categorias são equilibradas quanto a boa e má apresentação dos pratos, o que mostra que esse aspecto, embora não esteja ruim, precisa de melhorias para potencializar a qualidade do serviço.
+  Boa parte das categorias são equilibradas quanto ao sabor ser satisfatório ou desagradável, o que mostra que esse aspecto, também precisa de melhorias, mas certas categorias, como Breweries possui sabor totalmente insatisfatório, mostrando que o sabor é algo que precisa ser completamente melhorado em certas categorias, pois pode representar sérios problemas aos restaurantes delas.
+  Existem filtros no Excel por bairro, faixa de preço e oferta de reserva, o que possibilita análises mais específicas.
     
 
 
