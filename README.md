@@ -4,9 +4,9 @@ Projeto Final: Análise de Avaliações de Consumidores, Introdução à Ciênci
 # Segue neste README a documentação do código e as explicações referentes a análise dos dados, dos métodos utilizados e estrutura do Excel. O arquivo do Excel é analise_dados.xlsx
 
 # Feito pelos alunos:
-- Isaías Gouvêa Gonçalves
-- Henrique Gabriel Gasparelo
-- José Thevez Gomes Guedes
+- Isaías Gouvêa Gonçalves Matrícula: 241708012
+- Henrique Gabriel Gasparelo Matrícula: 241708055
+- José Thevez Gomes Guedes Matrícula: 241708005
   
  # Como utilizar
  1 - No arquivo `gpt.py` cole a sua chave da OpenAI no espaço indicado
