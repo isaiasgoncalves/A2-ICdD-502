@@ -243,24 +243,35 @@ Esse processo ocorre enquanto o código executa a função `export.criar_csv(res
 #### Bairros
 
   Bairros como a Lapa, possuem muitas avaliações e uma grande satisfação dos clientes, o que evidencia que um aumento no número de avaliações pode ajudá-lo a melhorar seus serviços.
-  Bairros da zona Sul, como Copacabana, Ipanema e Leblon, possuem mais restaurantes, mostrando que certas áreas precisam de mais restaurantes.
+  
+  Bairros da zona Sul, como Copacabana, Ipanema e Leblon, possuem mais restaurantes, mostrando que certas áreas precisam de mais restaurantes
+  
   Bairros como a Lapa, Botafogo e Santa Teresa possuem preços mais elevados, enquanto Del Castilho e Copacabana possuem maior custo-benefício, mostrando quais restaurantes precisam melhores os preços.
+  
   Existem filtros no Excel por faixa de preço, oferta de delivery e oferta de retirada, o que possibilita análises mais específicas.
 
 #### Faixa de Preço
 
   Restaurantes mais baratos, na faixa de preço 2, possuem maior quantidade de estrelas, o que mostra que restaurante mais baratos são melhor avaliados e que o alto preço de certos restaurantes pode ser um problema para a qualidade do serviço.
+  
   Quanto mais caro for o restaurante, maior a quantidade de pessoas que voltaria neles, o que mostra que a experiência de restaurantes mais caros é boa o bastante para motivar os clientes a irem novamente.
+  
   Quanto mais caro for o restaurante, maior a quantidade de pessoas que recomendaria eles, mostrando que restaurantes mais caros oferecem uma experiência que motiva os clientes a recomendá-los para conhecidos.
+  
   A maior quantidade de restaurantes são da categoria 3, o que mostra que os preços dos restaurantes são equilibrados.
+  
   Existem filtros no Excel por bairro, oferta de opções vegetarianas e oferta de opções veganas, o que possibilita análises mais específicas.
 
 #### Categoria
 
   A maioria das categorias possuem uma grande variedade de opções no menu, dentre elas, Gastropub e Breweries são as que possuem a maior variedade.
+  
   A categoria Bistro é a que mais possui satisfação dos clientes, o que evidencia que serviços como esse são mais satisfatórios aos clientes, enquanto Salad possui baixa satisfação com os clientes, mostrando que serviços como esse são menos atratativos.
+  
   A maioria das categorias são equilibradas quanto a boa e má apresentação dos pratos, o que mostra que esse aspecto, embora não esteja ruim, precisa de melhorias para potencializar a qualidade do serviço.
+  
   Boa parte das categorias são equilibradas quanto ao sabor ser satisfatório ou desagradável, o que mostra que esse aspecto, também precisa de melhorias, mas certas categorias, como Breweries possui sabor totalmente insatisfatório, mostrando que o sabor é algo que precisa ser completamente melhorado em certas categorias, pois pode representar sérios problemas aos restaurantes delas.
+  
   Existem filtros no Excel por bairro, faixa de preço e oferta de reserva, o que possibilita análises mais específicas.
     
 
