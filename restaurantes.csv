@@ -1,0 +1,52 @@
+IdRestaurante,Nome,Média de Estrelas,Quantidade de Reviews,Faixa de Preço,Categoria,Bairro,Possui Reserva,Oferece Retirada,Oferece Delivery,Possui Muitas Opções Vegetarianas,Possui Opções Veganas,Agilidade no Serviço,Lentidão no Serviço,Variedade de Opções,Cardápio Limitado,Sabor Agradável,Sabor Insatisfatório,Ingredientes de Qualidade,Ingredientes de Baixa Qualidade,Pratos Apresentáveis,Má Apresentação dos Pratos,Atendimento Bom,Atendimento Ruim,Ambiente Confortável,Ambiente Desconfortável,Bom Custo-Benefício,Preços Elevados,Recomendo,Não Recomendo,Voltaria,Não Voltaria,Outros Positivos,Outros Negativos
+0,Churrascaria Palace,4.3,162,5,Steakhouses,Copacabana,True,False,False,True,False,3,29,38,15,14,35,18,24,37,29,11,1,0,5,0,0,3,4,4,3,3,3
+1,Confeitaria Colombo,4.2,157,3,Cafes,Lapa,False,True,False,False,False,4,17,32,3,18,23,43,17,38,34,11,5,4,9,0,2,6,3,6,8,8,3
+2,Aprazível,4.3,147,4,Brazilian,Santa Teresa,True,False,False,False,True,7,11,45,10,29,29,45,30,50,42,12,6,2,8,0,2,7,2,8,4,4,2
+3,Garota de Ipanema,3.9,128,3,Brazilian,Del Castilho,True,False,False,False,False,2,11,41,8,25,32,24,28,40,40,11,0,1,7,1,0,6,4,2,4,2,5
+4,Marius Degustare,4.0,126,5,Mediterranean,Copacabana,True,False,False,True,False,7,30,37,11,22,39,40,26,43,40,12,2,2,10,2,0,9,4,15,10,8,6
+5,Zazá Bistrô Tropical,4.2,124,4,Bistros,Ipanema,True,True,True,False,False,7,20,49,16,30,35,42,18,50,40,14,3,0,7,2,1,5,1,8,5,5,2
+6,Bar Urca,4.4,115,3,Brazilian,Botafogo,False,True,False,False,False,2,5,27,6,14,15,27,16,33,29,12,1,0,2,0,1,3,1,3,2,1,1
+7,Nomangue,4.2,106,3,Seafood,Copacabana,True,True,False,True,False,5,15,54,17,33,43,14,35,50,44,13,1,1,5,0,0,4,2,5,6,1,2
+8,Via Sete,4.2,87,3,Modern European,Ipanema,True,False,False,True,False,9,21,51,11,20,39,39,27,42,41,10,4,0,9,0,2,4,2,7,4,2,6
+9,Fogo de Chão,3.9,79,5,Steakhouses,Desconhecido,True,False,False,True,False,4,18,33,8,11,31,19,19,27,20,12,2,3,8,0,1,15,6,7,14,12,8
+10,Churrascaria Carretão,3.9,75,4,Steakhouses,Ipanema,True,False,True,False,True,1,22,24,5,6,17,4,23,25,18,4,2,1,9,1,0,6,4,7,7,7,3
+11,Galeto Sat's,4.5,73,3,Dive Bars,Copacabana,False,True,False,False,False,6,8,35,9,22,23,12,22,31,31,8,0,0,2,0,0,2,1,0,1,1,1
+12,Gringo Café,4.2,69,3,American,Ipanema,True,True,False,False,False,7,17,40,6,10,41,20,24,41,36,6,0,1,9,1,0,3,1,2,1,1,7
+13,CT Boucherie,4.7,65,5,French,Leblon,False,False,False,True,False,6,25,37,13,19,22,14,25,35,30,8,0,1,1,0,0,2,0,3,3,1,2
+14,Sushi Leblon,3.8,65,5,Japanese,Leblon,True,True,True,True,False,9,17,35,11,16,26,17,24,32,19,11,5,2,14,1,3,11,3,9,7,7,5
+15,Bar Astor,4.0,64,3,Bars,Ipanema,True,False,False,False,False,4,13,26,5,9,21,26,15,26,23,9,3,1,4,1,3,9,2,4,6,6,3
+16,Comuna,4.2,64,3,Burgers,Botafogo,False,False,False,True,False,1,3,9,3,1,4,7,3,8,9,3,0,0,0,0,0,0,0,0,0,0,1
+17,TT Burger,3.9,63,3,Burgers,Ipanema,False,True,False,False,False,2,8,18,5,5,5,4,10,14,6,6,0,0,4,2,1,0,0,5,1,1,0
+18,Amir,4.1,60,3,Arabic,Copacabana,True,True,True,False,False,2,13,28,5,13,16,8,22,27,23,5,2,0,6,2,0,7,2,1,5,2,3
+19,Bar do Mineiro,4.2,55,3,Brazilian,Santa Teresa,False,True,False,False,False,2,4,8,1,2,4,8,8,9,8,1,0,0,1,0,0,0,1,0,0,0,0
+20,Carretão,4.0,51,4,Steakhouses,Copacabana,True,False,False,False,False,0,12,20,2,5,13,2,13,16,12,4,3,1,5,1,1,7,2,3,1,2,4
+21,Boteco Belmonte,4.1,50,4,Dive Bars,Copacabana,False,True,True,False,True,2,4,14,6,7,12,7,10,15,16,2,1,1,1,0,0,3,1,0,3,3,1
+22,Bibi Sucos,4.0,47,3,Salad,Copacabana,False,True,True,False,False,4,12,14,4,3,9,4,10,15,14,4,1,0,4,1,0,3,1,2,4,0,2
+23,La Bicyclette,4.1,44,3,Bakeries,Jardim Botânico,False,True,False,False,False,2,7,18,5,4,14,12,12,16,14,4,1,0,1,0,0,2,1,1,1,0,0
+24,Zuka,4.1,42,4,Modern European,Leblon,True,True,False,True,False,6,13,23,10,19,21,15,9,26,24,8,1,0,2,0,0,2,1,1,3,1,2
+25,Azteka,3.9,42,3,Mexican,Ipanema,True,True,True,False,True,4,10,25,12,11,11,8,10,24,20,5,2,1,4,0,0,3,1,4,4,2,2
+26,Braseiro,4.5,41,2,Brazilian,Copacabana,False,True,True,False,False,3,9,27,6,10,20,5,21,25,24,5,1,1,2,1,1,1,1,3,3,2,1
+27,Giuseppe Grill,4.0,40,5,Steakhouses,Leblon,True,False,False,False,False,2,5,16,3,8,11,8,11,13,11,5,1,1,2,1,1,3,1,6,2,1,3
+28,El Born,4.4,40,4,Cocktail Bars,Copacabana,False,True,False,False,False,5,15,18,7,9,14,11,13,18,14,5,1,0,1,0,0,1,0,1,1,1,1
+29,Cervantes,4.4,39,2,Brazilian,Copacabana,False,True,True,False,False,3,2,19,11,6,10,3,10,17,18,1,0,0,1,1,0,2,1,0,0,1,1
+30,Satyricon,3.8,39,5,Seafood,Ipanema,True,False,False,False,False,2,7,20,10,13,14,8,14,20,15,3,2,0,6,1,2,7,2,6,7,5,1
+31,Stalos,4.0,39,3,Bars,Copacabana,False,True,True,False,False,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+32,Mamma Jamma,4.4,37,3,Pizza,Leblon,True,True,True,False,False,3,4,10,5,6,7,3,8,10,8,2,2,1,1,1,1,1,1,1,1,1,1
+33,Braseiro da Gávea,4.6,37,3,Brazilian,Gávea,False,True,False,False,False,4,5,18,9,8,11,13,14,16,16,2,0,0,3,0,0,1,1,0,0,3,2
+34,Rotisseria Sírio Libaneza,4.7,36,2,Arabic,Laranjeiras,False,True,True,False,False,1,7,9,3,3,5,0,7,9,7,2,0,0,2,0,0,0,0,0,1,0,1
+35,Confeitaria Colombo,3.2,34,3,Cafes,Copacabana,True,False,False,False,False,0,3,6,0,3,5,6,5,5,4,1,1,0,3,0,0,3,0,1,2,2,1
+36,Artigiano,4.3,34,3,Italian,Leblon,True,True,False,False,False,3,3,8,3,7,6,5,6,7,6,1,0,1,0,0,0,3,1,1,2,0,0
+37,Venga,4.1,34,3,Spanish,Ipanema,True,True,False,False,False,1,4,6,3,4,6,6,0,6,5,2,3,0,3,1,2,1,0,2,2,0,1
+38,Delirium Café,4.1,34,4,Breweries,Ipanema,False,True,False,False,False,1,8,6,0,0,5,7,4,7,6,0,0,1,0,0,0,2,0,2,1,0,2
+39,La Trattoria,3.8,33,3,Italian,Copacabana,True,True,False,False,False,0,2,5,1,3,6,4,6,5,4,4,1,1,3,1,1,1,0,1,1,2,4
+40,Bazzar à Vins,4.2,33,4,Brazilian,Ipanema,True,False,False,False,False,0,7,19,4,11,13,12,10,17,13,3,1,0,2,0,0,1,0,1,1,1,0
+41,Santa Satisfação,4.4,33,3,Breakfast & Brunch,Copacabana,False,True,True,False,False,7,9,16,2,9,10,7,13,18,15,3,0,0,2,0,0,0,0,1,1,0,1
+42,Fazendola,3.4,33,3,Fondue,Leblon,True,True,True,False,False,1,4,5,1,2,5,3,5,5,4,3,0,1,4,1,0,1,0,2,2,0,3
+43,Carioca da Gema,4.2,32,3,Pizza,Lapa,False,False,False,False,False,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+44,Ferro e Farinha,4.5,31,3,Pizza,Botafogo,False,True,False,False,False,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+45,Pub Escondido,3.7,30,4,Gastropubs,Copacabana,True,False,False,False,False,0,5,3,0,1,3,5,3,3,2,3,0,2,4,0,0,3,1,5,0,0,1
+46,Joaquina,4.2,30,3,Bars,Copacabana,False,True,False,False,False,1,6,8,3,5,8,6,4,9,9,1,0,0,0,0,0,0,0,0,0,0,0
+47,Alessandro e Frederico Café,3.5,30,3,Italian,Ipanema,True,True,False,False,False,2,4,6,2,4,7,4,4,7,7,2,2,1,1,0,1,2,2,0,2,1,3
+48,Restaurante Shirley,4.2,30,4,Seafood,Leme,True,False,False,False,False,5,7,14,8,9,10,9,6,14,14,3,1,0,5,1,1,3,1,2,2,1,2
+49,Talho Capixaba,4.4,30,3,Bakeries,Leblon,False,True,True,False,False,0,15,16,8,3,8,7,13,18,14,4,0,0,1,0,0,0,0,2,1,0,1
+50,Espírito Santa Restaurante,4.1,30,4,Brazilian,Santa Teresa,True,False,False,True,False,0,8,16,2,11,11,11,4,13,12,4,2,0,3,1,0,2,0,1,3,1,5
